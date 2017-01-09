@@ -13,72 +13,9 @@ The repository provides the necessary code to source and run a [Docker container
 
 ---
 
-## Software requirements
-
-- [Docker](https://docs.docker.com/engine/installation/): version > 1.12.3
-
----
-
 ## Getting started
 
 ### Descriptions
 
-- `src`
-  - `scripts`: R code
-  - `output`: Files saved during the course of the R code
-- `docker-compose.yml`: Runs the RStudio container and links to `src`
-
-### Running the container
-
-1. Get this repository
-
-  ```shell
-  $ git clone https://github.com/jvwong/pc_guide_workflows_pathway_enrichment_custom.git
-  ```
-
-2. Run
-
-  a. With Compose
-
-    ```shell
-    $ cd pc_guide_workflows_pathway_enrichment_custom
-    $ docker-compose up
-    ```
-
-  b. Without Compose
-
-    ```shell
-    $ docker run --rm --tty --volume "$(pwd)/src:/home/TCGA" --publish 8787:8787 jvwong/pc_guide_workflows_pathway_enrichment_custom
-    ```
-
-  > Note: A Docker image will be pulled from the DockerHub. It will be run and link the `src` contents inside the container at `/home/TCGA`. This means that changes written to `src/output` by the R scripts will be available, even after the container exits.
-
-3. Point your browser to `127.0.0.1:8787`
-
-4. Use RStudio!
-
-  The username and password are both `rstudio`. In RStudio, the directories declared in `src` will be avilable at `/home/custom` (click the `...` button in the Files tab).
-
-  ```shell
-  home
-  |
-  |--- custom
-  |   |
-  |   |--- scripts
-  |   |    |
-  |   |    |--- get_data.R
-  |   |
-  |   |--- data
-  |   |    |
-  |   |    |--- Verhaak_JCI_2013_tableS1.txt
-  |   |
-  |   |--- output
-  |
-  |--- rstudio
-  |   |
-  ...
-  ```
-
-<hr/>
-
-## References
+- `scripts`: R code
+- `output`: Files saved during the course of the R code

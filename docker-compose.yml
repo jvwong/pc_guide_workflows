@@ -6,6 +6,6 @@ services:
       - "io.github.pathwaycommons=Guide workflows"
     image: jvwong/pc_guide_rstudio:latest
     volumes:
-      - ./src:/home/workflows
+      - ./src:/home/pc_workflows
     ports:
       - "8787:8787"
