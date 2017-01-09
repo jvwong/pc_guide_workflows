@@ -8,8 +8,6 @@ This repository is part of the [Pathway Commons Guide](http://pathwaycommons.git
 2. [Process Data](http://pathwaycommons.github.io/guide/workflows/pathway_enrichment_gdc/process_data/): The data are analyzed for differential expression between HGS-OvCa subtypes and the genes are ranked accordingly. The ranks are the input for an [enrichment analysis performed using GSEA](http://pathwaycommons.github.io/guide/workflows/pathway_enrichment_gdc/identify_pathways/)
 3. [Visualize](http://pathwaycommons.github.io/guide/workflows/pathway_enrichment_gdc/visualize/): The output of GSEA is visualized using an [Enrichment Map](http://apps.cytoscape.org/apps/enrichmentmap). Data formatted as part of this step are optional inputs for an Enrichment Map visualization.
 
-The repository provides the necessary code to source and run a [Docker container](https://hub.docker.com/r/jvwong/pc_guide_rstudio/) preloaded with a in-browser version of [RStudio](https://hub.docker.com/r/rocker/rstudio/) containing the necessary [Bioconductor](https://www.bioconductor.org/) dependencies. Data files produced will be saved to your computer.
-
 ---
 
 ## Getting started
