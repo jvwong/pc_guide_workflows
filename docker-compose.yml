@@ -1,0 +1,11 @@
+version: '2'
+services:
+  rstudio:
+    container_name: pc_guide_workflows
+    labels:
+      - "io.github.pathwaycommons=Guide workflows"
+    image: jvwong/pc_guide_rstudio:latest
+    volumes:
+      - ./src:/home/workflows
+    ports:
+      - "8787:8787"

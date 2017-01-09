@@ -1,0 +1,11 @@
+.Rhistory
+.DS_Store
+.rstudio/
+src/output/*
+!output/.gitkeep
+.Rproj.user
+*.Rproj
+.RDataTmp
+gdc-client*
+gdc_manifest.txt
+.RData
