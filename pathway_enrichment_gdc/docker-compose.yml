@@ -1,0 +1,7 @@
+version: '2'
+services:
+  web:
+    container_name: web
+    image: jvwong/pc_guide_emrseqapp
+    ports:
+      - "41960:8080"   
