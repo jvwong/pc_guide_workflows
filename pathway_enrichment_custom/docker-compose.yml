@@ -1,0 +1,13 @@
+version: '2'
+services:
+  webapp:
+    container_name: enrichment_custom_webapp
+    image: jvwong/pc_guide_workflows_enrich_custom_app
+    ports:
+      - "8080:8080"
+
+  opencpu:
+    container_name: enrichment_custom_opencpu
+    image: jvwong/pc_guide_workflows_enrich_custom_ocpu
+    ports:
+      - "8000:8004"
