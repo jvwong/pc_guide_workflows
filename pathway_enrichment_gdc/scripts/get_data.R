@@ -4,11 +4,7 @@ base_dir <- "/home/TCGA"
 output_dir <- file.path(base_dir, "output")
 
 # Retrieve the TCGA-OV RNA-seq data from GDC
-tcgaov_se <- emRNASeq::retrieve_gdc_rnaseq("TCGA-OV",
-  c("TCGA-04-1365-01A",
-    "TCGA-29-1766-01A",
-    "TCGA-09-2051-01A",
-    "TCGA-24-1427-10A"))
+tcgaov_se <- emRNASeq::retrieve_gdc_rnaseq("TCGA-OV")
 
 # Integrate class assignments
 # TCGA-OV subtypes (supplied)
