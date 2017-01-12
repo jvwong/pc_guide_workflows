@@ -1,4 +1,4 @@
-### ============ Install packages from Bioconductor ========
+### ============ Attach packages  ========
 library("edgeR")
 
 ### ============ Declare directories =========
@@ -67,4 +67,3 @@ write.table(tcgaov_ordered_ranks,
             sep = "\t",
             row.names = FALSE,
             quote = FALSE)
-
