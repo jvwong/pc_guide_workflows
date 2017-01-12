@@ -1,6 +1,3 @@
-rm(list=ls(all=TRUE))
-
-
 ### ============ Install packages from Bioconductor ========
 library("edgeR")
 
@@ -12,7 +9,7 @@ tcgaov_output_dir <- file.path(base_dir, "output")
 category_baseline <- "Immunoreactive"
 category_test<- "Mesenchymal"
 
-load(file.path(tcgaov_output_dir, "tcgaov_dge.RData"))
+tcgaov_dge <- readRDS(file.path(tcgaov_output_dir, "tcgaov_dge.rds"))
 
 
 ### ============ 1. Filter ===============
@@ -70,3 +67,4 @@ write.table(tcgaov_ordered_ranks,
             sep = "\t",
             row.names = FALSE,
             quote = FALSE)
+

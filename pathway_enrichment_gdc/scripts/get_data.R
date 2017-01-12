@@ -12,8 +12,7 @@ tcgaov_se <- emRNASeq::retrieve_gdc_rnaseq("TCGA-OV",
 
 # Integrate class assignments
 # TCGA-OV subtypes (supplied)
-pheno_file <- system.file("extdata",
-  "Verhaak_JCI_2013_tableS1.txt",
+pheno_file <- system.file("extdata/gdc/Verhaak_JCI_2013_tableS1.txt",
   package = "emRNASeq")
 
 tcgaov_dge <- emRNASeq::integrate_classes(
@@ -24,4 +23,4 @@ tcgaov_dge <- emRNASeq::integrate_classes(
   "SUBTYPE")  # p_pheno_key
 
 # Save
-save(tcgaov_dge, file = file.path(output_dir, "tcgaov_dge.RData"))
+saveRDS(tcgaov_dge, file = file.path(output_dir, "tcgaov_dge.rds"))
