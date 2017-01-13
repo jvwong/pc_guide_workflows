@@ -4,68 +4,69 @@
 
 This repository is part of the [Pathway Commons Guide](http://pathwaycommons.github.io/guide/). It contains code relevant to the [Pathway Enrichment - Custom](http://pathwaycommons.github.io/guide/workflows/pathway_enrichment_custom/index/) workflow.
 
-In practical terms, this repository provides a web app that can be run from inside R Studio. The app walks a user through the steps required to upload RNA Sequencing metadata and data relevant to a pair-wise comparison, then automatically generates all the required files for downstream analysis inclduing [Gene Set Enrichment Analysis](http://pathwaycommons.github.io/guide/workflows/pathway_enrichment_gdc/identify_pathways/) and [Enrichment Map](http://apps.cytoscape.org/apps/enrichmentmap).
+This repository provides access to a web application that walks a user through the steps required to upload RNA Sequencing metadata and data relevant to a pair-wise comparison, then automatically generates the files required for downstream analysis using [Gene Set Enrichment Analysis](http://pathwaycommons.github.io/guide/workflows/pathway_enrichment_gdc/identify_pathways/) and [Enrichment Map](http://apps.cytoscape.org/apps/enrichmentmap).
 
 ---
 
 ## Getting started
 
-The repository provides the code requires to source and run a [Docker container](https://hub.docker.com/r/jvwong/pc_guide_rstudio/) preloaded with a in-browser version of [RStudio](https://hub.docker.com/r/rocker/rstudio/) and the necessary [Bioconductor](https://www.bioconductor.org/) dependencies. Data files produced during the session will be saved to your computer, allowing you to use them in subsequent analyses.
+The web app is packaged in a set of [Docker](https://www.docker.com/) containers. You will be able to upload data and save the results to your local computer. We have provided a set of sample data RNA sequencing data and metadata to get you started.
 
 ### Software requirements
 
-- [Docker](https://docs.docker.com/engine/installation/): version > 1.12.3
-- (Optional) [Docker Compose](https://docs.docker.com/compose/): version > 1.9.0
+- [Docker](https://docs.docker.com/engine/installation/): version > 1.12
+- [Docker Compose](https://docs.docker.com/compose/): version > 1.9
 
 ### Descriptions
 
-- `docker-compose.yml`: Runs the RStudio container and links to the contents of `src`
+You should see the following directory structure.
 
-### Running the container
+```shell
+|--- pathway_enrichment_custom
+|   |
+|   |--- data
+|   |    |
+|   |    |--- gitr_phenotypes.txt
+|   |    |--- SMARTA_GITR_WT_1_htsqct.txt
+|   |    |--- SMARTA_GITR_WT_2_htsqct.txt
+|   |    |--- SMARTA_GITR_WT_3_htsqct.txt
+|   |    |--- SMARTA_GITR_KO_1_htsqct.txt
+|   |    |--- SMARTA_GITR_KO_2_htsqct.txt
+|   |    |--- SMARTA_GITR_KO_3_htsqct.txt
+|   |
+|   |--- docker-compose.yml
+...
+```
 
-1. Run the app
+- `docker-compose.yml`: Instructs Docker as to what images to pull from the DockerHub and runs the web application
+- `/data`
+  - `gitr_phenotypes.txt`: The metadata describing the data file names and classes
+  - `SMARTA_GITR_xx_y_htsqct.txt`: The RNA sequencing counts for a given class (xx) and biological replicate (y)
 
-  a. Using Docker
+### Start
 
-    ```shell
-    $ docker run --rm --tty --volume "$(pwd)/src:/home/pc_workflows" --publish 8787:8787 jvwong/pc_guide_workflows
-    ```
+1. Build, create, start, and attach to containers for the webapp service.
 
-  b. Using Docker Compose
+  Assuming you have Docker and Docker Compose, open up a terminal and navigate to the directory `pathway_enrichment_custom`.
 
   ```shell
-  $ cd pc_guide_workflows
-  $ docker-compose up
+  $ docker-compose up -d
   ```
 
-  > Note: A Docker image will be pulled from the DockerHub. It will be run and link the `src` contents inside the container at `/home/pc_workflows`. This means that changes written to `/home/pc_workflows/` by the R scripts will be available, even after the container exits.
+2. Point your browser to `localhost:8080`
 
-3. Point your browser to `127.0.0.1:8787`
+### Stop
 
-4. Use RStudio!
+You can stop the app by `$ docker-compose stop` or stop and remove the containers completely by using `$ docker-compose down`.
 
-  The username and password are both `rstudio`. In RStudio, the directories declared in `src` will be avilable at `/home/pc_workflows` (click the `...` button in the Files tab).
+## Troubleshooting
 
-  ```shell
-  home
-  |
-  |--- pc_workflows
-  |   |
-  |   |--- pathway_enrichment_gdc
-  |   |    |
-  |   |    |--- scripts
-  |   |    |--- output
-  |   |
-  |   |--- src/pathway_enrichment_custom
-  |        |
-  |        |--- scripts
-  |        |--- output
-  |
-  |--- rstudio
-  |   |
-  ...
-  ```
+1. Running Docker through a [virtual machine](https://docs.docker.com/machine/get-started/)
+
+  You can find the IP address by typing `echo $(docker-machine ip machinename)` where 'machinename' is the name of your virtual machine (e.g. 'default').
+
+2. Port conflicts
+
+  Feel free to modify the 'ports' attribute inside the 'webapp' service within  `docker-compose.yml` if you get a port conflict on your machine.
 
 <hr/>
-
-## References
