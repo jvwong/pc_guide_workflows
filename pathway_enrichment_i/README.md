@@ -2,7 +2,7 @@
 
 ## Overview
 
-This repository is part of the [Pathway Commons Guide](http://pathwaycommons.github.io/guide/). It contains code relevant to the workflow for [Pathway Enrichment -  GDC](http://pathwaycommons.github.io/guide/workflows/pathway_enrichment_gdc/index/). Packaged within a [Docker container](https://hub.docker.com/r/jvwong/) is an in-browser version of [RStudio](https://hub.docker.com/r/rocker/rstudio/) containing the necessary [Bioconductor](https://www.bioconductor.org/) dependencies to generate the files necessary to perform the enrichment workflow.
+This repository is part of the [Pathway Commons Guide](http://pathwaycommons.github.io/guide/). It contains code relevant to the workflow for [Pathway Enrichment -  I](http://pathwaycommons.github.io/guide/workflows/pathway_enrichment_i/index/). Packaged within a [Docker container](https://hub.docker.com/r/jvwong/) is an in-browser version of [RStudio](https://hub.docker.com/r/rocker/rstudio/) containing the necessary [Bioconductor](https://www.bioconductor.org/) dependencies to generate the files necessary to perform the enrichment workflow.
 
 ---
 
@@ -18,7 +18,7 @@ This repository is part of the [Pathway Commons Guide](http://pathwaycommons.git
 You should see the following directory structure.
 
 ```shell
-|--- pathway_enrichment_gdc
+|--- pathway_enrichment_i
 |   |
 |   |--- output
 |   |
@@ -43,7 +43,7 @@ You should see the following directory structure.
 
 1. Build, create, start, and attach to containers for the rstudio service.
 
-  Assuming you have Docker and Docker Compose, open up a terminal and navigate to the directory `pathway_enrichment_gdc`.
+  Assuming you have Docker and Docker Compose, open up a terminal and navigate to the directory `pathway_enrichment_i`.
 
     ```shell
     $ docker-compose up -d

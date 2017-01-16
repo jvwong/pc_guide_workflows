@@ -2,7 +2,7 @@ version: '2'
 services:
   rstudio:
     container_name: rstudio
-    image: jvwong/pc_guide_workflows_enrich_gdc
+    image: jvwong/pc_guide_workflows_enrich_i
     volumes:
       - ./scripts:/home/TCGA/scripts
       - ./output:/home/TCGA/output
