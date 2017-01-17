@@ -1,4 +1,4 @@
-# Pathway Enrichment Workflow
+# Workflow: Pathway Enrichment II
 
 ## Overview
 
@@ -53,7 +53,7 @@ You should see the following directory structure.
   $ docker-compose up -d
   ```
 
-2. Point your browser to `localhost:8080`
+2. Point your browser to [`localhost:8080`](http://localhost:8080)
 
 ### Stop
 

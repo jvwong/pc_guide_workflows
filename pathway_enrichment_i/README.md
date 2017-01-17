@@ -1,4 +1,4 @@
-# Pathway Enrichment Workflow
+# Workflow: Pathway Enrichment I
 
 ## Overview
 
@@ -51,7 +51,7 @@ You should see the following directory structure.
 
   > Note: A Docker image will be pulled from the DockerHub. It will be run and link to the `scripts` and `output` directories inside `/home/TCGA`. This means that changes written to `output` by the R scripts will be available, even after the container exits.
 
-3. Point your browser to `localhost:8787`
+3. Point your browser to [`localhost:8787`](http://localhost:8787)
 
 4. Use RStudio!
 
